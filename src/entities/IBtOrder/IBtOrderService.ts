@@ -6,7 +6,7 @@ import { IBtOrderFormData } from './IBtOrder';
 
 const useMock = true;
 let numberOfMockGetOrderCalls = 0;
-const numberOfMockGetOrderCallsTarget = 3;
+const numberOfMockGetOrderCallsTarget = 5;
 
 const client = new BlocktankClient();
 
@@ -35,7 +35,6 @@ export const getOrderApiCall = async (orderId: string): Promise<IBtOrder | undef
     try {
         if (useMock) {
             numberOfMockGetOrderCalls += 1;
-            console.log(numberOfMockGetOrderCalls, numberOfMockGetOrderCallsTarget);
             const isCompleted = numberOfMockGetOrderCalls >= numberOfMockGetOrderCallsTarget;
 
             return {

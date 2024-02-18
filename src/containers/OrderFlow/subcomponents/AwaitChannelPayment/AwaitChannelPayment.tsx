@@ -4,9 +4,9 @@ import { IBtOrder } from '@synonymdev/blocktank-lsp-http-client';
 import { IoChevronBack } from 'react-icons/io5';
 import QRCode from 'react-qr-code';
 
-import Button from '../../components/Button/Button';
-import ChannelInfo from '../../compositions/ChannelInfo/ChannelInfo';
-import { ExpiryTimeUnit } from '../../types';
+import Button from '../../../../components/Button/Button';
+import ChannelInfo from '../../../../compositions/ChannelInfo/ChannelInfo';
+import { ExpiryTimeUnit } from '../../../../types';
 
 import './AwaitChannelPayment.scss';
 
@@ -42,7 +42,7 @@ const AwaitChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick
                 className="await-channel-payment__channel-info"
             />
 
-            <div className="await-channel-payment__status">Awaiting payment (wait 3 seconds)</div>
+            <div className="await-channel-payment__status">Awaiting payment (wait 5 seconds)</div>
         </div>
     );
 };
