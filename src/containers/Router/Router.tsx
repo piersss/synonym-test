@@ -20,7 +20,7 @@ const Router: FC<RouterProps> = ({ className = '' }): ReactElement => {
             {paymentType === PaymentMethod.newChannel ? (
                 <ConnectedPayByNewChannel />
         ) : (
-            <div>Pay invoice</div>
+            <div>TODO: Pay invoice</div>
         )}
         </div>
     );
