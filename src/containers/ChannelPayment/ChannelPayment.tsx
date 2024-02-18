@@ -5,6 +5,8 @@ import { IoChevronBack } from 'react-icons/io5';
 import QRCode from 'react-qr-code';
 
 import Button from '../../components/Button/Button';
+import ChannelInfo from '../../compositions/ChannelInfo/ChannelInfo';
+import { ExpiryTimeUnit } from '../../types';
 
 import './ChannelPayment.scss';
 
@@ -30,6 +32,14 @@ const ChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick, cla
             <QRCode
                 value={payment.bolt11Invoice.request || payment.onchain.address}
                 className="channel-payment__qr-code"
+            />
+
+            <ChannelInfo
+                capacity={`${order.lspBalanceSat} ₿`}
+                expiryAmount={order.channelExpiryWeeks}
+                expiryUnit={ExpiryTimeUnit.weeks}
+                initialBtcBalance={`${order.lspBalanceSat} ₿`}
+                className="channel-payment__channel-info"
             />
 
             <div className="channel-payment__status">Awaiting payment</div>

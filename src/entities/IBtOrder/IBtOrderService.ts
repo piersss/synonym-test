@@ -13,6 +13,8 @@ export const createOrderApiCall = async (formProps: IBtOrderFormData): Promise<I
             return {
                 ...mockedIBtOrder,
                 id: crypto.randomUUID(),
+                lspBalanceSat: formProps.lspBalanceSat,
+                channelExpiryWeeks: formProps.expiryInWeeks,
             };
         }
 

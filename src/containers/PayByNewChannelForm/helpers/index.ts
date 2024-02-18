@@ -1,10 +1,13 @@
-import { IBtOrderFormData } from '../../../entities/IBtOrder/IBtOrder';
-
 export interface IBtOrderFormErrors {
-    lspBalanceSat?: string;
+    capacity?: string;
+    timeUnitAmount?: string;
 }
 
-const validateNumber = (value: number): string | undefined => {
+const validateNumber = (value?: number): string | undefined => {
+    if (!value) {
+        return 'Value is required';
+    }
+
     if (value <= 0) {
         return 'Value must be greater than 0';
     }
@@ -12,6 +15,7 @@ const validateNumber = (value: number): string | undefined => {
     return undefined;
 };
 
-export const validatePayByNewChannelFormData = (formData: IBtOrderFormData): IBtOrderFormErrors => ({
-    lspBalanceSat: validateNumber(formData.lspBalanceSat),
+export const validatePayByNewChannelFormData = (capacity?: number, timeUnitAmount?: number): IBtOrderFormErrors => ({
+    capacity: validateNumber(capacity),
+    timeUnitAmount: validateNumber(timeUnitAmount),
 });

@@ -1,8 +1,9 @@
 import {
     ChangeEvent,
-    FC,
+    forwardRef,
+    ForwardRefExoticComponent,
     ReactElement,
-    useRef,
+    Ref,
 } from 'react';
 
 import ErrorLabel from '../../components/ErrorLabel/ErrorLabel';
@@ -13,12 +14,13 @@ import './NumberInput.scss';
 
 interface NumberInputProps extends Omit<InputProps, 'onChange'> {
     hideLabel?: boolean;
+    error?: string;
     label: string;
     tooltip?: string;
     onChange: (value: number) => void;
 }
 
-const NumberInput: FC<NumberInputProps> = ({
+const NumberInput: ForwardRefExoticComponent<NumberInputProps> = forwardRef(({
     label,
     hideLabel,
     tabIndex,
@@ -28,9 +30,7 @@ const NumberInput: FC<NumberInputProps> = ({
     onChange,
     className = '',
     ...inputProps
-}): ReactElement => {
-    const inputRef = useRef<HTMLInputElement>(null);
-
+}, ref: Ref<HTMLInputElement>): ReactElement => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => onChange(Number(event.currentTarget.value));
 
     return (
@@ -49,7 +49,7 @@ const NumberInput: FC<NumberInputProps> = ({
             <div className="number-input__field-wrapper">
                 <Input
                     {...inputProps}
-                    ref={inputRef}
+                    ref={ref}
                     type="number"
                     tabIndex={tabIndex}
                     disabled={disabled}
@@ -67,6 +67,6 @@ const NumberInput: FC<NumberInputProps> = ({
             )}
         </label>
     );
-};
+});
 
 export default NumberInput;

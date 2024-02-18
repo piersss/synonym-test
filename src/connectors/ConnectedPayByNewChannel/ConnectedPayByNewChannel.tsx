@@ -29,6 +29,7 @@ const ConnectedPayByNewChannel: FC = (): ReactElement => {
 
     useEffect(() => {
         if (order?.id) {
+            
             console.log(order?.id);
             // Poll for update using order.id
         }

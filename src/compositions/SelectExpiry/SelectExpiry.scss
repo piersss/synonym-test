@@ -1,0 +1,33 @@
+@import "src/styles";
+
+.select-expiry {
+
+    &__inputs-wrapper {
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__input-amount,
+    &__select {
+        width: 50%;
+    }
+
+    &__input-amount {
+        position: relative;
+        border-radius: 0;
+        flex-grow: 1;
+
+        &:focus,
+        &:active,
+        &:hover {
+            z-index: 2;
+        }
+    }
+
+    &__dropdown {
+        position: relative;
+        margin-left: -1px;
+        height: 100%;
+        z-index: 1;
+    }
+}

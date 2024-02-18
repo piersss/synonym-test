@@ -7,3 +7,10 @@ export enum PaymentMethod {
     newChannel = 'newChannel',
     payInvoice = 'payInvoice',
 }
+
+export enum ExpiryTimeUnit {
+    minutes = 'minutes',
+    hours = 'hours',
+    days = 'days',
+    weeks = 'weeks',
+}
