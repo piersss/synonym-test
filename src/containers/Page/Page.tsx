@@ -15,7 +15,9 @@ const Page: FC<PropsWithChildren<PageProps>> = ({ className = '', children }): R
         <div className="page__content">
             <Header title="Configure" />
 
-            {children}
+            <div className="page__children-wrapper">
+                {children}
+            </div>
         </div>
     </div>
 );

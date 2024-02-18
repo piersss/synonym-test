@@ -1,0 +1,55 @@
+@import "src/styles";
+
+$component: "radio";
+
+.#{$component} {
+    @extend %input-label;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &--is-disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+
+        &:focus:not(:focus-visible) ~ .#{$component}__label {
+            text-decoration: none;
+        }
+
+        &:focus ~ .#{$component}__label {
+            text-decoration: underline;
+        }
+
+        &:checked  ~ .#{$component}__box::after {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    &__box {
+        @extend %flex-align-center;
+        @include circle(1.875rem);
+
+        border: 1px solid currentColor;
+
+        &::after {
+            @include circle(1rem);
+
+            content: "";
+            background-color: var(--c-accent);
+            transition: opacity .1s ease, scale .1s ease;
+            opacity: 0;
+            scale: .75;
+        }
+    }
+
+    &__label {
+        margin-inline-start: 1rem;
+    }
+}

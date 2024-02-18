@@ -1,0 +1,10 @@
+@import "src/styles";
+
+.payment-type-selector {
+    padding-inline: 2rem;
+
+    &__option-wrapper {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

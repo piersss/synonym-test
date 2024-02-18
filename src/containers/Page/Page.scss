@@ -15,7 +15,7 @@
         height: var(--size);
         opacity: .7;
         background: linear-gradient(90deg, #E46735 0%, #C93250 70.83%, #CA488C 100%);
-        filter: blur(350px)
+        filter: blur(21.875rem);
     }
 
     &__content {
@@ -24,7 +24,11 @@
         width: 100%;
         max-width: 30rem;
         padding: 2rem;
-        background: rgba(255, 255, 255, .1);
-        color: #fff;
+        background: rgba(var(--c-white-rgb), .1);
+        color: var(--c-white);
+    }
+
+    &__children-wrapper {
+        margin-block-start: 1rem;
     }
 }
