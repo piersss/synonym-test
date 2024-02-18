@@ -5,6 +5,10 @@
 
     &--has-error {
         border: 2px solid var(--c-negative);
+
+        &:focus {
+            border-color: var(--c-negative);
+        }
     }
 
     &::placeholder {

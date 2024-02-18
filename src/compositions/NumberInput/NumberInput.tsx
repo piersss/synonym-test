@@ -12,8 +12,9 @@ import InputLabel from '../../components/InputLabel/InputLabel';
 import './NumberInput.scss';
 
 interface NumberInputProps extends Omit<InputProps, 'onChange'> {
-    label: string;
     hideLabel?: boolean;
+    label: string;
+    tooltip?: string;
     onChange: (value: number) => void;
 }
 
@@ -23,6 +24,7 @@ const NumberInput: FC<NumberInputProps> = ({
     tabIndex,
     disabled,
     error = '',
+    tooltip,
     onChange,
     className = '',
     ...inputProps
@@ -39,6 +41,7 @@ const NumberInput: FC<NumberInputProps> = ({
             {!hideLabel && (
                 <InputLabel
                     label={label}
+                    tooltip={tooltip}
                     className="number-input__label"
                 />
             )}

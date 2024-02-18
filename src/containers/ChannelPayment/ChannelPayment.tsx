@@ -31,6 +31,8 @@ const ChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick, cla
                 value={payment.bolt11Invoice.request || payment.onchain.address}
                 className="channel-payment__qr-code"
             />
+
+            <div className="channel-payment__status">Awaiting payment</div>
         </div>
     );
 };
