@@ -6,14 +6,18 @@ import {
 } from 'react';
 
 import { IBtOrder } from '@synonymdev/blocktank-lsp-http-client';
+import { BtOrderState2 } from '@synonymdev/blocktank-lsp-http-client/dist/shared/BtOrderState2';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { noop } from 'react-use/lib/misc/util';
 
-import ChannelPayment from '../../containers/ChannelPayment/ChannelPayment';
-import PayByNewChannelForm from '../../containers/PayByNewChannelForm/PayByNewChannelForm';
+import OrderFlow from '../../containers/OrderFlow/OrderFlow';
 import { IBtOrderFormData } from '../../entities/IBtOrder/IBtOrder';
-import { createOrderApiCall } from '../../entities/IBtOrder/IBtOrderService';
+import { createOrderApiCall, getOrderApiCall } from '../../entities/IBtOrder/IBtOrderService';
 
 const ConnectedPayByNewChannel: FC = (): ReactElement => {
     const [order, setOrder] = useState<IBtOrder | undefined>();
+
+    console.log(order);
 
     const handleSubmit = async (formData: IBtOrderFormData) => {
         const response = await createOrderApiCall(formData);
@@ -27,25 +31,39 @@ const ConnectedPayByNewChannel: FC = (): ReactElement => {
         setOrder(undefined);
     };
 
-    useEffect(() => {
-        if (order?.id) {
-            
-            console.log(order?.id);
-            // Poll for update using order.id
+    useEffect((): () => void => {
+        if (!order) {
+            return noop;
         }
-    }, [order?.id]);
 
-    if (order) {
-        return (
-            <ChannelPayment
-                order={order}
-                onBackButtonClick={handleBackButtonClick}
-            />
-        );
-    }
+        let intervalId: NodeJS.Timeout;
+
+        const fetchOrder = async () => {
+            const response = await getOrderApiCall(order?.id);
+
+            if (response !== undefined) {
+                setOrder(response);
+            }
+        };
+
+        if (order.state2 === BtOrderState2.CREATED) {
+            fetchOrder();
+            intervalId = setInterval(fetchOrder, 1000);
+        }
+
+        return () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+        };
+    }, [order?.state2]);
 
     return (
-        <PayByNewChannelForm onSubmit={handleSubmit} />
+        <OrderFlow
+            order={order}
+            onBackButtonClick={handleBackButtonClick}
+            onSubmit={handleSubmit}
+        />
     );
 };
 

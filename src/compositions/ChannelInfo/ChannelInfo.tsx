@@ -4,7 +4,7 @@ import ChannelInfoRow from './subcomponents/ChannelInfoRow/ChannelInfoRow';
 
 interface ChannelInfoProps {
     capacity: string;
-    expiryAmount: number;
+    expiryAmount: number | string;
     expiryUnit: string;
     initialBtcBalance: string;
     className?: string;

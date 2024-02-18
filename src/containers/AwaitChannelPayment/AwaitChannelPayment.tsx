@@ -8,7 +8,7 @@ import Button from '../../components/Button/Button';
 import ChannelInfo from '../../compositions/ChannelInfo/ChannelInfo';
 import { ExpiryTimeUnit } from '../../types';
 
-import './ChannelPayment.scss';
+import './AwaitChannelPayment.scss';
 
 interface ChannelPaymentProps {
     order: IBtOrder;
@@ -16,14 +16,14 @@ interface ChannelPaymentProps {
     className?: string;
 }
 
-const ChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick, className = '' }): ReactElement => {
+const AwaitChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick, className = '' }): ReactElement => {
     const { payment } = order;
 
     return (
-        <div className={`channel-payment ${className}`}>
+        <div className={`await-channel-payment ${className}`}>
             <Button
                 onClick={onBackButtonClick}
-                className="channel-payment__back-button"
+                className="await-channel-payment__back-button"
             >
                 <IoChevronBack />
                 Go back
@@ -31,20 +31,20 @@ const ChannelPayment: FC<ChannelPaymentProps> = ({ order, onBackButtonClick, cla
 
             <QRCode
                 value={payment.bolt11Invoice.request || payment.onchain.address}
-                className="channel-payment__qr-code"
+                className="await-channel-payment__qr-code"
             />
 
             <ChannelInfo
                 capacity={`${order.lspBalanceSat} ₿`}
-                expiryAmount={order.channelExpiryWeeks}
+                expiryAmount="?"
                 expiryUnit={ExpiryTimeUnit.weeks}
                 initialBtcBalance={`${order.lspBalanceSat} ₿`}
-                className="channel-payment__channel-info"
+                className="await-channel-payment__channel-info"
             />
 
-            <div className="channel-payment__status">Awaiting payment</div>
+            <div className="await-channel-payment__status">Awaiting payment (wait 3 seconds)</div>
         </div>
     );
 };
 
-export default ChannelPayment;
+export default AwaitChannelPayment;
