@@ -3,8 +3,7 @@
     margin: 0;
     padding-block: .5rem;
     border: none;
-    border-block-end: 2px solid rgba(var(--c-black-rgb), .3);
-    border-radius: var(--border-radius);
+    border-block-end: 1px solid rgba(var(--c-white-rgb), .3);
     font: inherit;
     color: currentColor;
     font-weight: var(--fw-bold);
@@ -17,7 +16,7 @@
 
     &:focus {
         outline: none;
-        border-block-end-color: rgba(var(--c-black-rgb), 1);
+        border-block-end-color: rgba(var(--c-white-rgb), 1);
     }
 }
 

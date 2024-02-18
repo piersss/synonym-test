@@ -1,21 +1,5 @@
+@import "src/styles";
+
 .button {
-    margin: 0;
-    padding: 1rem;
-    font: inherit;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    cursor: pointer;
-    background: none;
-
-    &:hover,
-    &:focus {
-        outline: none;
-    }
-
-    &:disabled {
-        color: grey;
-        cursor: not-allowed;
-        opacity: 0.65;
-    }
+    @extend %button;
 }

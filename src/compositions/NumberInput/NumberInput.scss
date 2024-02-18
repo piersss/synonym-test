@@ -14,10 +14,6 @@
     &__field {
         -moz-appearance: textfield;
         border-inline-end: none;
-        border-start-start-radius: var(--border-radius);
-        border-start-end-radius: 0;
-        border-end-start-radius: var(--border-radius);
-        border-end-end-radius: 0;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {

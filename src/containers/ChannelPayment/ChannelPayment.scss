@@ -1,0 +1,15 @@
+@import "src/styles";
+
+.channel-payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    &__qr-code {
+        margin-block-start: 1rem;
+        padding: .5rem;
+        background: var(--c-white);
+        filter: drop-shadow(.5rem .5rem 1rem var(--c-black));
+    }
+}

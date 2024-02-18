@@ -1,0 +1,14 @@
+@import "src/styles";
+
+.pay-by-new-channel-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &__submit-button {
+        @extend %button--is-primary;
+
+        justify-self: flex-end;
+        margin-block-start: auto;
+    }
+}

@@ -19,16 +19,22 @@
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
         position: relative;
         z-index: 1;
         width: 100%;
         max-width: 30rem;
+        min-height: 30rem;
         padding: 2rem;
         background: rgba(var(--c-white-rgb), .1);
         color: var(--c-white);
     }
 
     &__children-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
         margin-block-start: 1rem;
     }
 }
