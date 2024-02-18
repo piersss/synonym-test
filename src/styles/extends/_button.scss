@@ -1,0 +1,50 @@
+@import "flex";
+@import "misc";
+
+%button {
+    @extend %flex-align-center;
+
+    margin: 0;
+    padding: 1rem;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        color: var(--c-disabled-grey);
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+}
+
+%button--is-primary {
+    @extend %button;
+
+    border-radius: 4px;
+    height: 3rem;
+    padding: .75rem;
+    font-weight: var(--fw-bold);
+    font-size: .9375rem;
+    text-transform: uppercase;
+    background: var(--c-primary);
+    color: var(--c-white);
+
+    &:hover,
+    &:focus {
+        background: var(--c-primary-dark);
+    }
+
+    &:disabled {
+        opacity: .65;
+    }
+}
+
+

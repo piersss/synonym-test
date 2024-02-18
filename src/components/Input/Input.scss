@@ -1,0 +1,13 @@
+@import "src/styles";
+
+.input {
+    @extend %input;
+
+    &--has-error {
+        border: 2px solid var(--c-negative);
+    }
+
+    &::placeholder {
+        color: var(--c-grey);
+    }
+}

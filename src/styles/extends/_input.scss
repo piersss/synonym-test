@@ -1,0 +1,28 @@
+%input {
+    width: 100%;
+    margin: 0;
+    padding-block: .5rem;
+    border: none;
+    border-block-end: 2px solid rgba(var(--c-black-rgb), .3);
+    border-radius: var(--border-radius);
+    font: inherit;
+    color: currentColor;
+    font-weight: var(--fw-bold);
+    background-color: transparent;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .5;
+    }
+
+    &:focus {
+        outline: none;
+        border-block-end-color: rgba(var(--c-black-rgb), 1);
+    }
+}
+
+%input-label {
+    font-size: 1rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.5;
+}

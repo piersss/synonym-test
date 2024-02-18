@@ -1,0 +1,15 @@
+@import "src/styles";
+
+.input-label {
+    @extend %input-label;
+
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+
+    &__additional-label {
+        color: currentColor;
+        opacity: .75;
+    }
+}

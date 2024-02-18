@@ -1,0 +1,30 @@
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    &__background-gradient {
+        --size: 52.5rem;
+
+        position: absolute;
+        top: calc(var(--size) * -.5);
+        left: calc(var(--size) * -.5);
+        width: var(--size);
+        height: var(--size);
+        opacity: .7;
+        background: linear-gradient(90deg, #E46735 0%, #C93250 70.83%, #CA488C 100%);
+        filter: blur(350px)
+    }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 30rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, .1);
+        color: #fff;
+    }
+}

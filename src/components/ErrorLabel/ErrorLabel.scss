@@ -1,0 +1,11 @@
+@import "src/styles";
+
+.error-label {
+    @extend %input-label;
+
+    color: var(--c-negative);
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
