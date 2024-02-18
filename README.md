@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Synonym test project
+
+I have created a simple react app that uses the Blocktank API client to manage lightning channels.
+
+While trying to create an order using the Blocktank API I ran into an error:
+
+```
+BlocktankClientError: Failed to create order. undefined
+    at BlocktankClient.<anonymous> (BlocktankClient.ts:73:1)
+    at Generator.throw (<anonymous>)
+    at rejected (RefreshUtils.js:286:1)
+```
+
+Not knowing how to fix this error and having time constraints I decided to just use some mock data based on the response it should have given.
+
+I used my usual setup for a react app, using typescript and components following an atomic design pattern. Normally I would use redux for state management but for this simple app I decided it was not necessary.
+
+- Components (simple components like Button and Input)
+- Compositions (composed components like NumberInput and SelectExpiry)
+- Containers (gathering of all components and compositions)
+- Connectors (connecting the containers to the api)
+
+There's still a lot to do. Like actually make it work with the API. I also have not made the components for paying by invoice.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
